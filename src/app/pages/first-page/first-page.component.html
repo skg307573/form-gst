@@ -1,0 +1,18 @@
+<div class="container">
+  <h4 class="text-info">User Details</h4> 
+  <hr class="text-primary">
+</div>
+<div class="container">
+  <div class="row col-md-8 offset-md-2">
+    <div class="col-md-3" *ngFor="let data of users">
+      <div class="card" >
+        <div class="card-body">
+          <b><p class="card-title">{{data.first_name}}</p></b>
+          <small class="card-title">{{data.email}}</small>
+        </div>
+        <img src="{{data.avatar}}" class="card-img-top" alt="...">
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

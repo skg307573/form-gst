@@ -1,0 +1,16 @@
+select{
+appearance:auto !important;
+}
+.is-invalid{
+        border:1px solid red;
+        color:red;
+     }
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  select.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  .btn-border{
+    border-radius: 7px;
+  }

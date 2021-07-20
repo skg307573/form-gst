@@ -1,0 +1,179 @@
+<div class="container">
+  <h4 class="text-info">Submit Reimbursement Invoices</h4> 
+  <hr class="text-primary">
+  <!-- crate form -->
+  <form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="card">
+    <div class="card-body">
+      <div class="row col-md-12">
+      <div class="col-md-4">
+        <label for="inputEmail4" class="form-label">Select Type Of Reimbursement</label>
+        <select formControlName="Reimbursement" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.Reimbursement.errors }" >
+          <option value="">Select Reimbursement</option>
+          <option value="Reimbursement 1">Reimbursement 1</option>
+          <option value="Reimbursement 2">Reimbursement 2</option>
+          <option value="Reimbursement 3">Reimbursement 3</option>
+          <option value="Reimbursement 4">Reimbursement 4</option>
+        </select>
+        <div *ngIf="submitted && f.Reimbursement.errors" class="invalid-feedback">
+          <div *ngIf="f.Reimbursement.errors.required">Reimbursement is required</div>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputPassword4" class="form-label">Select Month</label>
+        <select formControlName="Month" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.Month.errors }">
+          <option value="">Select Month</option>
+          <option value="Jan">Jan</option>
+          <option value="Feb">Feb</option>
+          <option value="March">March</option>
+          <option value="Apr">Apr</option>
+          <option value="May">May</option>
+          <option value="Jun">Jun</option>
+          <option value="July">July</option>
+          <option value="Aug">Aug</option>
+          <option value="Sep">Sep</option>
+          <option value="Oct">Oct</option>
+          <option value="Nov">Nov</option>
+          <option value="Dec">Dec</option>
+        </select>
+        <div *ngIf="submitted && f.Month.errors" class="invalid-feedback">
+          <div *ngIf="f.Month.errors.required">Month is required</div>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputAddress" class="form-label">Select Year </label>
+        <select formControlName="Year" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.Year.errors }">
+          <option value="">Select Year</option>
+          <option value="volvo">2000</option>
+          <option value="saab">2001</option>
+        </select>
+        <div *ngIf="submitted && f.Year.errors" class="invalid-feedback">
+          <div *ngIf="f.Year.errors.required"> Year is required</div>
+      </div>
+            </div>
+    </div>
+</div>
+</div>
+<br>
+<!-- <div class="card"> -->
+  <!-- <div class="card-body"> -->
+    <div class="card-group">
+      <div class="card">
+        <div class="card-body">
+          <small><b class="card-title">Agency :</b></small>
+          <div>Quess</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <small><b class="card-title">GST Number :</b></small>
+          <div>asdsada</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <small><b class="card-title">PAN Number :</b></small>
+          <div>asd2321</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <small><b class="card-title">Commission(%) :</b></small>
+          <div>2</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <small><b class="card-title">Agency Address :</b></small>
+          <div>quess</div>
+        </div>
+      </div>
+    </div>
+<!-- </div> -->
+<!-- </div> -->
+<br>
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <input type="text" formControlName="Invoice" class="form-control"  placeholder="Invoice No"
+       [ngClass]="{ 'is-invalid': submitted && f.Invoice.errors }" />
+      <div *ngIf="submitted && f.Invoice.errors" class="invalid-feedback">
+        <div *ngIf="f.Invoice.errors.required"> Invoice is required</div>
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <input type="date" formControlName="Invoice_Date" class="form-control" 
+       placeholder="Invoice Date" [ngClass]="{ 'is-invalid': submitted && f.Invoice_Date.errors }" />
+      <div *ngIf="submitted && f.Invoice_Date.errors" class="invalid-feedback">
+        <div *ngIf="f.Invoice_Date.errors.required"> Invoice_Date is required</div>
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <input type="text"  formControlName="Small_Description" class="form-control" 
+       placeholder="Small Description" [ngClass]="{ 'is-invalid': submitted && f.Small_Description.errors }" />
+      <div *ngIf="submitted && f.Small_Description.errors" class="invalid-feedback">
+        <div *ngIf="f.Small_Description.errors.required"> Small_Description is required</div>
+    </div>  
+  </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <input type="text" formControlName="Total_Ammount" class="form-control"  
+      placeholder="Total Ammount" [ngClass]="{ 'is-invalid': submitted && f.Total_Ammount.errors }" />
+      <div *ngIf="submitted && f.Total_Ammount.errors" class="invalid-feedback">
+        <div *ngIf="f.Total_Ammount.errors.required"> Total_Ammount is required</div>
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <input type="text" formControlName="IGST" class="form-control" (blur)="blurFields()" 
+      placeholder="IGST Ammount" [ngClass]="{ 'is-invalid': submitted && f.IGST.errors }" />
+      <div *ngIf="submitted && f.IGST.errors" class="invalid-feedback">
+        <div *ngIf="f.IGST.errors.required"> IGST is required</div>
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <input type="text" formControlName="SGST_CGST" class="form-control" (blur)="blurFields()"
+      placeholder="SGST & CGST Ammount" [ngClass]="{ 'is-invalid': submitted && f.SGST_CGST.errors }" />
+      <div *ngIf="submitted && f.SGST_CGST.errors" class="invalid-feedback">
+        <div *ngIf="f.SGST_CGST.errors.required"> SGST_CGST is required</div>
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <input type="text" formControlName="Grand_Total" class="form-control"  
+      placeholder="Grand Total"  [readonly] = "disableSelect" [ngClass]="{ 'is-invalid': submitted && f.Grand_Total.errors }" />
+      <div *ngIf="submitted && f.Grand_Total.errors" class="invalid-feedback">
+        <div *ngIf="f.Grand_Total.errors.required"> Grand_Total is required</div>
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <input type="file" formControlName="file" class="form-control" id="inputEmail4" (change)="onFileSelect($event)"
+      [ngClass]="{ 'is-invalid': submitted && f.file.errors }" />
+      <div *ngIf="submitted && f.file.errors" class="invalid-feedback">
+        <div *ngIf="f.file.errors.required"> file is required</div>
+    </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="form-btn" align="center">
+  <button  class="btn btn-primary btn-border">Submit</button>
+</div>
+</form>
+
+
+</div>
